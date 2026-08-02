@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Github, ExternalLink } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Badge } from '../common/Badge';
@@ -127,7 +127,7 @@ export const ProjectsSection = ({ projectsData = [] }) => {
                   ))}
                 </div>
 
-                {/* Card Footer Button */}
+                {/* Card Footer Buttons */}
                 <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
                   <button
                     onClick={() => setSelectedProject(project)}
@@ -136,6 +136,19 @@ export const ProjectsSection = ({ projectsData = [] }) => {
                     <span>View Case Study</span>
                     <ArrowRight size={16} />
                   </button>
+
+                  {project.repoUrl && (
+                    <a
+                      href={project.repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-500 hover:text-[#1E3A8A] transition-colors p-1.5 rounded-lg hover:bg-gray-100"
+                      title="View Repository on GitHub"
+                      aria-label="GitHub Repository"
+                    >
+                      <Github size={18} />
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>
@@ -150,9 +163,24 @@ export const ProjectsSection = ({ projectsData = [] }) => {
         >
           {selectedProject && (
             <div className="space-y-5">
-              <span className="inline-block font-mono text-xs text-[#1E3A8A] bg-[#EFF6FF] px-3 py-1 rounded-full border border-[#BFDBFE]">
-                {selectedProject.categoryLabel}
-              </span>
+              <div className="flex items-center justify-between flex-wrap gap-2">
+                <span className="inline-block font-mono text-xs text-[#1E3A8A] bg-[#EFF6FF] px-3 py-1 rounded-full border border-[#BFDBFE]">
+                  {selectedProject.categoryLabel}
+                </span>
+
+                {selectedProject.repoUrl && (
+                  <a
+                    href={selectedProject.repoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#1F2937] hover:text-[#1E3A8A] bg-gray-100 hover:bg-[#EFF6FF] border border-gray-200 px-3 py-1 rounded-full transition-colors"
+                  >
+                    <Github size={14} />
+                    <span>GitHub Repository</span>
+                    <ExternalLink size={12} />
+                  </a>
+                )}
+              </div>
 
               <img
                 src={selectedProject.image}
@@ -216,6 +244,21 @@ export const ProjectsSection = ({ projectsData = [] }) => {
                   ))}
                 </div>
               </div>
+
+              {selectedProject.repoUrl && (
+                <div className="pt-4 border-t border-gray-100">
+                  <a
+                    href={selectedProject.repoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#1F2937] text-white hover:bg-[#1E3A8A] transition-colors text-sm font-bold font-heading shadow-sm"
+                  >
+                    <Github size={18} />
+                    <span>Buka Repositori GitHub</span>
+                    <ExternalLink size={14} className="opacity-70" />
+                  </a>
+                </div>
+              )}
             </div>
           )}
         </Modal>

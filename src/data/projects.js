@@ -15,9 +15,10 @@ export const projectsData = [
     results: [
       "Penyelesaian seluruh milestone proyek tepat waktu sesuai tenggat semester.",
       "Koordinasi tim lintas fungsi (analisis, dev, dokumentasi) yang efektif dan transparan.",
-      "Dokumentasi proyek yang lengkap dan mudah ditelusuri di repositori."
+      "Dokumentasi proyek yang lengkap dan mudah ditelusuri di repositori GitHub."
     ],
-    tech: ["Project Management", "SDLC", "Risk Monitoring", "GitHub"]
+    tech: ["Project Management", "SDLC", "Risk Monitoring", "GitHub"],
+    repoUrl: "https://github.com/jalutri/report_repository"
   },
   {
     id: "proj-2",
@@ -34,7 +35,8 @@ export const projectsData = [
       "Penerapan praktik keamanan IAM dan manajemen resource Cloud GCP yang optimal.",
       "Kelulusan predikat memuaskan pada Program Bangkit Academy Batch 7 2024."
     ],
-    tech: ["Google Cloud Platform", "Cloud Run", "Cloud Storage", "REST API", "Docker", "IAM Security"]
+    tech: ["Google Cloud Platform", "Cloud Run", "Cloud Storage", "REST API", "Docker", "IAM Security"],
+    repoUrl: "https://github.com/Ardani-Bangkit/Bangkit-Capstone-Team-C242-PS557"
   },
   {
     id: "proj-3",
