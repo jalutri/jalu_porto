@@ -8,6 +8,7 @@ export const professionalExperienceData = [
     organization: "SEAL (Social Economic Accelerator Lab) - Startup",
     period: "Feb 2026 – June 2026",
     location: "Surabaya, Indonesia",
+    certificatePdf: "/assets/images/sertif_seal.pdf",
     bullets: [
       "Menganalisis proses bisnis dan kebutuhan sistem untuk mendukung pengembangan solusi digital pada inisiatif sosial dan ekonomi.",
       "Menghasilkan dokumentasi spesifikasi kebutuhan fungsional (FRD), user flows, dan sistem dengan menerjemahkan kebutuhan stakeholder.",
@@ -20,6 +21,7 @@ export const professionalExperienceData = [
     organization: "PT Adma Digital Solusi (ADS Digital Partner)",
     period: "Feb 2025 – July 2025",
     location: "Surabaya, Indonesia",
+    certificatePdf: "/assets/images/sertif_ads.pdf",
     bullets: [
       "Menyusun dan mengelola dokumentasi teknis komprehensif, meliputi petunjuk pengguna (user manuals), dokumentasi API, dan laporan teknis.",
       "Mengembangkan dan menstandarisasi pedoman dokumentasi untuk menjamin kejelasan serta konsistensi komunikasi teknis.",
@@ -32,6 +34,7 @@ export const professionalExperienceData = [
     organization: "Google Cloud x Dicoding Indonesia",
     period: "July 2025 – Sept 2025",
     location: "Remote",
+    certificatePdf: "/assets/images/sertif_arcade.pdf",
     bullets: [
       "Memfasilitasi kegiatan pembelajaran praktis layanan Google Cloud Platform (GCP) mencakup Compute Engine, Cloud Storage, Kubernetes, BigQuery, IAM, dan Cloud Security.",
       "Mendampingi peserta dalam menyelesaikan hands-on lab teknis dan troubleshooting kendala komputasi awan pada Cloud Skills Boost.",
@@ -44,6 +47,7 @@ export const professionalExperienceData = [
     organization: "Program Studi Sistem Informasi, Universitas Negeri Surabaya",
     period: "July 2024 – Aug 2025",
     location: "Surabaya, Indonesia",
+    certificatePdf: "/assets/images/sertif_website.pdf",
     bullets: [
       "Mengelola dan memperbarui konten situs web untuk memastikan akurasi dan ketepatan waktu informasi akademik yang dipublikasikan.",
       "Menerbitkan berita, pengumuman, dan pembaruan akademik guna meningkatkan aksesibilitas informasi bagi mahasiswa dan pemangku kepentingan.",
@@ -70,6 +74,7 @@ export const organizationExperienceData = [
     role: "Co-Director of Public Relation",
     organization: "Google Developer Group on Campus, Universitas Negeri Surabaya",
     period: "Nov 2024 – Aug 2025",
+    certificatePdf: "/assets/images/sertif_gdgoc.pdf",
     bullets: [
       "Mengembangkan dan mengeksekusi strategi hubungan masyarakat (PR) untuk meningkatkan visibilitas organisasi dan keterlibatan komunitas.",
       "Memimpin inisiatif komunikasi dan mengoordinasikan kegiatan promosi untuk memastikan jangkauan publik yang konsisten.",
@@ -79,8 +84,9 @@ export const organizationExperienceData = [
   {
     id: "org-2",
     role: "Chairman (Ketua Umum)",
-    organization: "Himpunan Mahasiswa Sistem Informasi (HIMASI UNESA)",
+    organization: "Himpunan Mahasiswa Prodi Sistem Informasi Unesa (HMP SI Unesa)",
     period: "Feb 2024 – Feb 2025",
+    certificateImage: "/assets/images/HMP-SI.png",
     bullets: [
       "Memimpin perencanaan, pelaksanaan, dan evaluasi organisasi selama satu periode kepengurusan penuh.",
       "Menetapkan sasaran strategis dan mengoordinasikan kolaborasi antar-departemen untuk mencapai tujuan organisasi.",
@@ -92,6 +98,7 @@ export const organizationExperienceData = [
     role: "Staff of Communication and Information Department",
     organization: "Himpunan Mahasiswa Jurusan Teknik Informatika UNESA",
     period: "Feb 2023 – Feb 2024",
+    certificateImage: "/assets/images/sertif_himti.png",
     bullets: [
       "Mengelola saluran komunikasi organisasi dan platform media sosial untuk mendukung penyebaran informasi secara efektif.",
       "Berkolaborasi dengan tim internal untuk memastikan komunikasi program kerja organisasi yang akurat dan tepat waktu.",
@@ -128,6 +135,7 @@ export const speakerExperienceData = [
     role: "Personal Data Protection Webinar Speaker",
     organization: "WIJABA Public Webinar Literacy Series",
     period: "5 Mei 2026",
+    certificatePdf: "/assets/images/sertif_wijaba.pdf",
     bullets: [
       "Membawakan materi Web Seminar \"Personal Data Protection & Cybersecurity Awareness\".",
       "Mempresentasikan topik risiko privasi mencakup phishing, serangan deepfake, penipuan AI, dan praktik perlindungan data pribadi.",

@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { Briefcase, Users, Mic, Calendar, MapPin } from 'lucide-react';
+import { Briefcase, Users, Mic, Calendar, MapPin, Award, Eye, FileText, ExternalLink } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Badge } from '../common/Badge';
+import { Modal } from '../common/Modal';
 import {
   professionalExperienceData,
   organizationExperienceData,
@@ -19,6 +20,7 @@ gsap.registerPlugin(ScrollTrigger);
  */
 export const OrganizationsSection = () => {
   const [activeTab, setActiveTab] = useState('professional');
+  const [selectedCert, setSelectedCert] = useState(null);
 
   const sectionRef = useRef(null);
   const headerRef = useRef(null);
@@ -228,6 +230,47 @@ export const OrganizationsSection = () => {
                       </li>
                     ))}
                   </ul>
+
+                  {(item.certificateImage || item.certificatePdf) && (() => {
+                    const certFile = item.certificatePdf || item.certificateImage;
+                    const isPdf = certFile.toLowerCase().endsWith('.pdf');
+
+                    return (
+                      <div className="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between flex-wrap gap-3">
+                        <div className="flex items-center gap-3">
+                          {isPdf ? (
+                            <div
+                              onClick={() => setSelectedCert({ title: `Sertifikat - ${item.role} (${item.organization})`, file: certFile, isPdf: true })}
+                              className="w-16 h-12 rounded-lg bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center text-[#1E3A8A] cursor-pointer hover:bg-[#DBEAFE] transition-colors"
+                            >
+                              <FileText size={24} />
+                            </div>
+                          ) : (
+                            <img
+                              src={certFile}
+                              alt={`Sertifikat ${item.role}`}
+                              className="w-16 h-12 object-cover rounded-lg border border-gray-200 shadow-sm cursor-pointer hover:opacity-90 transition-opacity"
+                              onClick={() => setSelectedCert({ title: `Sertifikat - ${item.role} (${item.organization})`, file: certFile, isPdf: false })}
+                            />
+                          )}
+                          <div>
+                            <div className="text-xs font-bold text-[#1F2937]">
+                              {isPdf ? "Dokumen Sertifikat (PDF)" : "Sertifikat Organisasi / Kerja"}
+                            </div>
+                            <div className="text-[11px] text-[#6B7280]">Dokumen Resmi Terverifikasi</div>
+                          </div>
+                        </div>
+
+                        <button
+                          onClick={() => setSelectedCert({ title: `Sertifikat - ${item.role} (${item.organization})`, file: certFile, isPdf })}
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#1E3A8A] hover:text-[#1E40AF] bg-[#EFF6FF] hover:bg-[#DBEAFE] border border-[#BFDBFE] px-3.5 py-1.5 rounded-lg transition-colors cursor-pointer"
+                        >
+                          <Eye size={14} />
+                          <span>{isPdf ? "Pratinjau PDF" : "Lihat Sertifikat"}</span>
+                        </button>
+                      </div>
+                    );
+                  })()}
                 </motion.div>
               </motion.div>
             ))}
@@ -287,6 +330,47 @@ export const OrganizationsSection = () => {
                       </li>
                     ))}
                   </ul>
+
+                  {(item.certificateImage || item.certificatePdf) && (() => {
+                    const certFile = item.certificatePdf || item.certificateImage;
+                    const isPdf = certFile.toLowerCase().endsWith('.pdf');
+
+                    return (
+                      <div className="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between flex-wrap gap-3">
+                        <div className="flex items-center gap-3">
+                          {isPdf ? (
+                            <div
+                              onClick={() => setSelectedCert({ title: `Sertifikat - ${item.role} (${item.organization})`, file: certFile, isPdf: true })}
+                              className="w-16 h-12 rounded-lg bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center text-[#1E3A8A] cursor-pointer hover:bg-[#DBEAFE] transition-colors"
+                            >
+                              <FileText size={24} />
+                            </div>
+                          ) : (
+                            <img
+                              src={certFile}
+                              alt={`Sertifikat ${item.role}`}
+                              className="w-16 h-12 object-cover rounded-lg border border-gray-200 shadow-sm cursor-pointer hover:opacity-90 transition-opacity"
+                              onClick={() => setSelectedCert({ title: `Sertifikat - ${item.role} (${item.organization})`, file: certFile, isPdf: false })}
+                            />
+                          )}
+                          <div>
+                            <div className="text-xs font-bold text-[#1F2937]">
+                              {isPdf ? "Dokumen Sertifikat (PDF)" : "Sertifikat Organisasi / SK"}
+                            </div>
+                            <div className="text-[11px] text-[#6B7280]">Dokumen Resmi Terverifikasi</div>
+                          </div>
+                        </div>
+
+                        <button
+                          onClick={() => setSelectedCert({ title: `Sertifikat - ${item.role} (${item.organization})`, file: certFile, isPdf })}
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#1E3A8A] hover:text-[#1E40AF] bg-[#EFF6FF] hover:bg-[#DBEAFE] border border-[#BFDBFE] px-3.5 py-1.5 rounded-lg transition-colors cursor-pointer"
+                        >
+                          <Eye size={14} />
+                          <span>{isPdf ? "Pratinjau PDF" : "Lihat Sertifikat"}</span>
+                        </button>
+                      </div>
+                    );
+                  })()}
                 </motion.div>
               </motion.div>
             ))}
@@ -346,12 +430,91 @@ export const OrganizationsSection = () => {
                       </li>
                     ))}
                   </ul>
+
+                  {(item.certificateImage || item.certificatePdf) && (() => {
+                    const certFile = item.certificatePdf || item.certificateImage;
+                    const isPdf = certFile.toLowerCase().endsWith('.pdf');
+
+                    return (
+                      <div className="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between flex-wrap gap-3">
+                        <div className="flex items-center gap-3">
+                          {isPdf ? (
+                            <div
+                              onClick={() => setSelectedCert({ title: `Sertifikat - ${item.role} (${item.organization})`, file: certFile, isPdf: true })}
+                              className="w-16 h-12 rounded-lg bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center text-[#1E3A8A] cursor-pointer hover:bg-[#DBEAFE] transition-colors"
+                            >
+                              <FileText size={24} />
+                            </div>
+                          ) : (
+                            <img
+                              src={certFile}
+                              alt={`Sertifikat ${item.role}`}
+                              className="w-16 h-12 object-cover rounded-lg border border-gray-200 shadow-sm cursor-pointer hover:opacity-90 transition-opacity"
+                              onClick={() => setSelectedCert({ title: `Sertifikat - ${item.role} (${item.organization})`, file: certFile, isPdf: false })}
+                            />
+                          )}
+                          <div>
+                            <div className="text-xs font-bold text-[#1F2937]">
+                              {isPdf ? "Dokumen Sertifikat (PDF)" : "Sertifikat Organisasi / Pembicara"}
+                            </div>
+                            <div className="text-[11px] text-[#6B7280]">Dokumen Resmi Terverifikasi</div>
+                          </div>
+                        </div>
+
+                        <button
+                          onClick={() => setSelectedCert({ title: `Sertifikat - ${item.role} (${item.organization})`, file: certFile, isPdf })}
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#1E3A8A] hover:text-[#1E40AF] bg-[#EFF6FF] hover:bg-[#DBEAFE] border border-[#BFDBFE] px-3.5 py-1.5 rounded-lg transition-colors cursor-pointer"
+                        >
+                          <Eye size={14} />
+                          <span>{isPdf ? "Pratinjau PDF" : "Lihat Sertifikat"}</span>
+                        </button>
+                      </div>
+                    );
+                  })()}
                 </motion.div>
               </motion.div>
             ))}
           </div>
 
         </div>
+
+        {/* Modal Viewer Sertifikat Organisasi (Gambar & PDF) */}
+        <Modal
+          isOpen={!!selectedCert}
+          onClose={() => setSelectedCert(null)}
+          title={selectedCert?.title}
+        >
+          {selectedCert && (
+            <div className="space-y-4">
+              {selectedCert.isPdf ? (
+                <div className="flex flex-col gap-3">
+                  <iframe
+                    src={selectedCert.file}
+                    title={selectedCert.title}
+                    className="w-full h-[70vh] rounded-xl border border-gray-200 shadow-sm bg-gray-50"
+                  />
+                  <div className="flex justify-end">
+                    <a
+                      href={selectedCert.file}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-xs font-semibold text-white bg-[#1E3A8A] hover:bg-[#1E40AF] px-4 py-2 rounded-lg transition-colors"
+                    >
+                      <ExternalLink size={14} />
+                      <span>Buka / Unduh File PDF</span>
+                    </a>
+                  </div>
+                </div>
+              ) : (
+                <img
+                  src={selectedCert.file}
+                  alt={selectedCert.title}
+                  className="w-full h-auto max-h-[75vh] object-contain rounded-xl border border-gray-200 shadow-sm bg-gray-50"
+                />
+              )}
+            </div>
+          )}
+        </Modal>
 
       </div>
     </section>

@@ -36,7 +36,8 @@ export const projectsData = [
       "Kelulusan predikat memuaskan pada Program Bangkit Academy Batch 7 2024."
     ],
     tech: ["Google Cloud Platform", "Cloud Run", "Cloud Storage", "REST API", "Docker", "IAM Security"],
-    repoUrl: "https://github.com/Ardani-Bangkit/Bangkit-Capstone-Team-C242-PS557"
+    repoUrl: "https://github.com/Ardani-Bangkit/Bangkit-Capstone-Team-C242-PS557",
+    certificatePdf: "/assets/images/sertif_bangkit.pdf"
   },
   {
     id: "proj-3",

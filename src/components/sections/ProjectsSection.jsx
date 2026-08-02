@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, CheckCircle2, Github, ExternalLink } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Github, ExternalLink, FileText } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Badge } from '../common/Badge';
@@ -245,18 +245,33 @@ export const ProjectsSection = ({ projectsData = [] }) => {
                 </div>
               </div>
 
-              {selectedProject.repoUrl && (
-                <div className="pt-4 border-t border-gray-100">
-                  <a
-                    href={selectedProject.repoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#1F2937] text-white hover:bg-[#1E3A8A] transition-colors text-sm font-bold font-heading shadow-sm"
-                  >
-                    <Github size={18} />
-                    <span>Buka Repositori GitHub</span>
-                    <ExternalLink size={14} className="opacity-70" />
-                  </a>
+              {(selectedProject.repoUrl || selectedProject.certificatePdf) && (
+                <div className="pt-4 border-t border-gray-100 flex flex-col sm:flex-row gap-3">
+                  {selectedProject.repoUrl && (
+                    <a
+                      href={selectedProject.repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#1F2937] text-white hover:bg-[#1E3A8A] transition-colors text-sm font-bold font-heading shadow-sm"
+                    >
+                      <Github size={18} />
+                      <span>Buka Repositori GitHub</span>
+                      <ExternalLink size={14} className="opacity-70" />
+                    </a>
+                  )}
+
+                  {selectedProject.certificatePdf && (
+                    <a
+                      href={selectedProject.certificatePdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#EFF6FF] text-[#1E3A8A] hover:bg-[#DBEAFE] border border-[#BFDBFE] transition-colors text-sm font-bold font-heading shadow-sm"
+                    >
+                      <FileText size={18} />
+                      <span>Lihat Sertifikat (PDF)</span>
+                      <ExternalLink size={14} className="opacity-70" />
+                    </a>
+                  )}
                 </div>
               )}
             </div>

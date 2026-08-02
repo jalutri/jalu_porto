@@ -53,7 +53,7 @@ export const skillsData = {
     {
       title: "Leadership & Team Management",
       icon: "Users",
-      description: "Pengalaman sebagai Ketua Umum HIMASI UNESA dan Co-Director GDG Campus dalam memimpin tim, menyusun strategi organisasi, dan mengelola program kerja."
+      description: "Pengalaman sebagai Ketua Umum HMP SI Unesa dan Co-Director GDG Campus dalam memimpin tim, menyusun strategi organisasi, dan mengelola program kerja."
     },
     {
       title: "Analytical Thinking & Problem Solving",

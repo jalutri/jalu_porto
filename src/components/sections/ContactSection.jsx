@@ -41,12 +41,6 @@ export const ContactSection = ({ contactData = [] }) => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    // Construct pre-filled Gmail compose URL
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=jalutriatmaja19@gmail.com&su=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(`Halo Jalu,\n\nNama: ${data.name}\nEmail: ${data.email}\n\nPesan:\n${data.message}`)}`;
-    
-    // Open Gmail Compose in a new tab
-    window.open(gmailUrl, '_blank', 'noopener,noreferrer');
-
     setSubmitSuccess(true);
     reset();
 
@@ -77,25 +71,40 @@ export const ContactSection = ({ contactData = [] }) => {
 
           {/* Left Column: Quick Contact Cards */}
           <div className="flex flex-col gap-4">
-            {contactData.map((item) => (
-              <a
-                key={item.id}
-                href={item.href}
-                target={item.href.startsWith('http') ? '_blank' : '_self'}
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 bg-white p-5 rounded-2xl border border-gray-200 shadow-sm hover:border-[#BFDBFE] hover:-translate-y-0.5 hover:shadow-md transition-all group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-[#EFF6FF] text-[#1E3A8A] flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                  {renderIcon(item.icon, 22)}
+            {contactData.map((item) => {
+              const CardContent = (
+                <>
+                  <div className="w-12 h-12 rounded-xl bg-[#EFF6FF] text-[#1E3A8A] flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                    {renderIcon(item.icon, 22)}
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-xs text-[#4B5563] font-medium">{item.label}</span>
+                    <span className="text-sm md:text-base font-bold font-heading text-[#1F2937] select-all">
+                      {item.value}
+                    </span>
+                  </div>
+                </>
+              );
+
+              return item.href ? (
+                <a
+                  key={item.id}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 bg-white p-5 rounded-2xl border border-gray-200 shadow-sm hover:border-[#BFDBFE] hover:-translate-y-0.5 hover:shadow-md transition-all group"
+                >
+                  {CardContent}
+                </a>
+              ) : (
+                <div
+                  key={item.id}
+                  className="flex items-center gap-4 bg-white p-5 rounded-2xl border border-gray-200 shadow-sm transition-all group"
+                >
+                  {CardContent}
                 </div>
-                <div className="flex flex-col">
-                  <span className="text-xs text-[#4B5563] font-medium">{item.label}</span>
-                  <span className="text-sm md:text-base font-bold font-heading text-[#1F2937] group-hover:text-[#1E3A8A] transition-colors">
-                    {item.value}
-                  </span>
-                </div>
-              </a>
-            ))}
+              );
+            })}
           </div>
 
           {/* Right Column: Contact Form */}

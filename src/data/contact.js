@@ -4,9 +4,9 @@
 export const contactData = [
   {
     id: "email",
-    label: "Email Direct (Gmail)",
+    label: "Alamat Email",
     value: "jalutriatmaja19@gmail.com",
-    href: "https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=jalutriatmaja19@gmail.com",
+    href: null,
     icon: "Mail"
   },
   {
