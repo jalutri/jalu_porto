@@ -110,7 +110,7 @@ export const organizationExperienceData = [
     organization: "Himpunan Mahasiswa Program Studi Sistem Informasi (HMP SI Unesa)",
     period: "Jan 2024 – Dec 2024",
     location: "Surabaya, Indonesia",
-    certificatePdf: "/assets/images/sertif_himti.png",
+    certificatePdf: "/assets/images/HMP-SI.png",
     bullets: {
       id: [
         "Memimpin organisasi mahasiswa yang menaungi 400+ mahasiswa Sistem Informasi, mengoordinasikan 5 divisi, dan mengelola 15+ program kerja teknolgi dan pengembangan sumber daya mahasiswa.",
@@ -146,8 +146,8 @@ export const organizationExperienceData = [
   },
   {
     id: "org-3",
-    role: "Wakil Kepala Divisi Komunikasi dan Informasi (Kominfo)",
-    organization: "HMP Sistem Informasi UNESA",
+    role: "Staff Divisi Komunikasi dan Informasi (Kominfo)",
+    organization: "Himpunan Mahasiswa Informatika UNESA",
     period: "Feb 2023 – Dec 2023",
     location: "Surabaya, Indonesia",
     certificatePdf: "/assets/images/sertif_himti.png",
