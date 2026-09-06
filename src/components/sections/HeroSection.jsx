@@ -107,13 +107,13 @@ export const HeroSection = ({ personalData }) => {
               <div className="absolute bottom-1 w-[260px] h-[260px] sm:w-[300px] sm:h-[300px] rounded-full bg-gradient-to-b from-[#9CA3AF] to-[#6B7280] shadow-2xl border-4 border-white pointer-events-none" />
 
               {/* Subject Image (Uncropped head popping out) */}
-              <div className="relative w-[280px] h-[340px] sm:w-[320px] sm:h-[380px] flex items-end justify-center pointer-events-none">
-                <img
-                  src={avatar}
-                  alt={`${name} - Professional Portrait`}
-                  className="w-full h-full object-contain scale-[1.05] translate-y-1 drop-shadow-xl"
-                />
-              </div>
+              <div className="relative w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] flex items-center justify-center overflow-hidden rounded-full border-4 border-white z-10">
+                  <img
+                    src={avatar}
+                    alt={`${name} - Professional Portrait`}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
             </div>
 
             {/* Floating Highlight Card */}
