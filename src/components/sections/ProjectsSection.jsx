@@ -5,6 +5,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Badge } from '../common/Badge';
 import { Modal } from '../common/Modal';
+import { useLanguage } from '../../hooks/useLanguage';
+import { translations } from '../../data/translations';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,6 +20,8 @@ export const ProjectsSection = ({ projectsData = [] }) => {
   const sectionRef = useRef(null);
   const headerRef = useRef(null);
   const gridRef = useRef(null);
+  const { lang } = useLanguage();
+  const t = translations[lang].projects;
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -61,26 +65,28 @@ export const ProjectsSection = ({ projectsData = [] }) => {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, [projectsData]);
+  }, []);
 
   return (
     <section
       ref={sectionRef}
       id="projects"
-      className="py-20 md:py-28 bg-[#F9FAFB] border-y border-gray-200 overflow-hidden"
+      className="py-20 md:py-28 bg-[#F9FAFB] bg-grid-pattern border-y border-gray-200 overflow-hidden relative"
     >
-      <div className="max-w-[1200px] mx-auto px-6">
+      <div className="absolute top-1/2 -left-20 w-96 h-96 bg-[#EFF6FF] rounded-full blur-3xl opacity-60 pointer-events-none" />
+
+      <div className="max-w-[1200px] mx-auto px-6 relative z-10">
         
         {/* Section Header */}
         <div ref={headerRef} className="text-center max-w-2xl mx-auto mb-16">
           <Badge variant="navy" className="mb-3">
-            // PORTFOLIO
+            {t.tag}
           </Badge>
           <h2 className="text-3xl md:text-4xl font-extrabold font-heading text-[#1F2937] tracking-tight mb-4">
-            Proyek & Studi Kasus Unggulan
+            {t.title}
           </h2>
           <p className="text-base md:text-lg text-[#4B5563]">
-            Kumpulan hasil karya teknis yang menggabungkan konsep Cloud, Keamanan Informasi, Tata Kelola Risiko, dan Web Engineering.
+            {t.subtitle}
           </p>
         </div>
 
@@ -89,9 +95,11 @@ export const ProjectsSection = ({ projectsData = [] }) => {
           {projectsData.map((project) => (
             <motion.div
               key={project.id}
+              data-cursor={lang === 'id' ? "Lihat Studi Kasus" : "View Case Study"}
+              onClick={() => setSelectedProject(project)}
               whileHover={{ y: -8 }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-              className="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm flex flex-col hover:shadow-xl hover:border-[#BFDBFE] transition-all group"
+              className="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm flex flex-col hover:shadow-xl hover:border-[#BFDBFE] transition-all group cursor-pointer"
             >
               {/* Image Thumbnail */}
               <div className="relative w-full h-48 overflow-hidden bg-gray-100">
@@ -112,7 +120,7 @@ export const ProjectsSection = ({ projectsData = [] }) => {
                 </h3>
 
                 <p className="text-[#4B5563] text-sm leading-relaxed mb-6 flex-grow">
-                  {project.shortDescription}
+                  {typeof project.shortDescription === 'object' ? project.shortDescription[lang] : project.shortDescription}
                 </p>
 
                 {/* Tech Stack Badges */}
@@ -133,7 +141,7 @@ export const ProjectsSection = ({ projectsData = [] }) => {
                     onClick={() => setSelectedProject(project)}
                     className="text-sm font-bold font-heading text-[#1E3A8A] hover:text-[#1E40AF] inline-flex items-center gap-1.5 cursor-pointer group-hover:gap-2.5 transition-all"
                   >
-                    <span>View Case Study</span>
+                    <span>{t.viewRepo ? "View Case Study" : "View Case Study"}</span>
                     <ArrowRight size={16} />
                   </button>
 
@@ -176,7 +184,7 @@ export const ProjectsSection = ({ projectsData = [] }) => {
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#1F2937] hover:text-[#1E3A8A] bg-gray-100 hover:bg-[#EFF6FF] border border-gray-200 px-3 py-1 rounded-full transition-colors"
                   >
                     <Github size={14} />
-                    <span>GitHub Repository</span>
+                    <span>{t.viewRepo}</span>
                     <ExternalLink size={12} />
                   </a>
                 )}
@@ -190,37 +198,40 @@ export const ProjectsSection = ({ projectsData = [] }) => {
 
               <div>
                 <h4 className="text-sm font-bold font-heading text-[#1F2937] uppercase tracking-wider mb-1">
-                  Overview Proyek
+                  {t.overview}
                 </h4>
                 <p className="text-[#4B5563] text-sm leading-relaxed">
-                  {selectedProject.overview}
+                  {typeof selectedProject.overview === 'object' ? selectedProject.overview[lang] : selectedProject.overview}
                 </p>
               </div>
 
               <div>
                 <h4 className="text-sm font-bold font-heading text-[#1F2937] uppercase tracking-wider mb-1">
-                  Tantangan (Challenge)
+                  {t.challenge}
                 </h4>
                 <p className="text-[#4B5563] text-sm leading-relaxed">
-                  {selectedProject.challenge}
+                  {typeof selectedProject.challenge === 'object' ? selectedProject.challenge[lang] : selectedProject.challenge}
                 </p>
               </div>
 
               <div>
                 <h4 className="text-sm font-bold font-heading text-[#1F2937] uppercase tracking-wider mb-1">
-                  Solusi & Pendekatan Teknis
+                  {t.solution}
                 </h4>
                 <p className="text-[#4B5563] text-sm leading-relaxed">
-                  {selectedProject.solution}
+                  {typeof selectedProject.solution === 'object' ? selectedProject.solution[lang] : selectedProject.solution}
                 </p>
               </div>
 
               <div>
                 <h4 className="text-sm font-bold font-heading text-[#1F2937] uppercase tracking-wider mb-2">
-                  Hasil & Dampak (Results & Impact)
+                  {t.results}
                 </h4>
                 <ul className="space-y-1.5 pl-1">
-                  {selectedProject.results?.map((res, idx) => (
+                  {(Array.isArray(selectedProject.results) 
+                    ? selectedProject.results 
+                    : selectedProject.results[lang]
+                  )?.map((res, idx) => (
                     <li key={idx} className="flex items-start gap-2 text-sm text-[#4B5563]">
                       <CheckCircle2 size={16} className="text-[#10B981] flex-shrink-0 mt-0.5" />
                       <span>{res}</span>

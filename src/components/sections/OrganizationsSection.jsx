@@ -10,17 +10,16 @@ import {
   organizationExperienceData,
   speakerExperienceData
 } from '../../data/organizations';
+import { useLanguage } from '../../hooks/useLanguage';
+import { translations } from '../../data/translations';
 
 gsap.registerPlugin(ScrollTrigger);
 
-/**
- * Component: OrganizationsSection / ExperienceSection
- * Sequential continuous scroll timeline for Professional Experience, Organization, and Speaker/Training
- * with automatic ScrollSpy active tab switching and sticky tab buttons.
- */
 export const OrganizationsSection = () => {
   const [activeTab, setActiveTab] = useState('professional');
   const [selectedCert, setSelectedCert] = useState(null);
+  const { lang } = useLanguage();
+  const t = translations[lang].experience;
 
   const sectionRef = useRef(null);
   const headerRef = useRef(null);
@@ -116,13 +115,13 @@ export const OrganizationsSection = () => {
         {/* Section Header */}
         <div ref={headerRef} className="text-center max-w-2xl mx-auto mb-10">
           <Badge variant="navy" className="mb-3">
-            // REKAM JEJAK & PENGALAMAN
+            {t.tag}
           </Badge>
           <h2 className="text-3xl md:text-4xl font-extrabold font-heading text-[#1F2937] tracking-tight mb-4">
-            Pengalaman Kerja, Organisasi & Pembicara
+            {t.title}
           </h2>
           <p className="text-base md:text-lg text-[#4B5563]">
-            Rekam jejak profesional dalam Analisis Sistem, Software QA, Kepemimpinan Organisasi, serta Pembicara Publik.
+            {t.subtitle}
           </p>
         </div>
 
@@ -137,7 +136,7 @@ export const OrganizationsSection = () => {
                 }`}
             >
               <Briefcase size={16} />
-              <span>Pengalaman Kerja</span>
+              <span>{t.types.professional}</span>
             </button>
 
             <button
@@ -148,7 +147,7 @@ export const OrganizationsSection = () => {
                 }`}
             >
               <Users size={16} />
-              <span>Pengalaman Organisasi</span>
+              <span>{t.types.organizational}</span>
             </button>
 
             <button
@@ -159,7 +158,7 @@ export const OrganizationsSection = () => {
                 }`}
             >
               <Mic size={16} />
-              <span>Pembicara & Pelatihan</span>
+              <span>{t.types.academic}</span>
             </button>
           </div>
         </div>
@@ -180,7 +179,7 @@ export const OrganizationsSection = () => {
           <div ref={profRef} id="exp-professional" className="space-y-10 pt-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#EFF6FF] text-[#1E3A8A] font-bold font-heading text-sm border border-[#BFDBFE]">
               <Briefcase size={16} />
-              <span>Pengalaman Kerja (Professional)</span>
+              <span>{t.types.professional}</span>
             </div>
 
             {professionalExperienceData.map((item, idx) => (
@@ -197,8 +196,9 @@ export const OrganizationsSection = () => {
 
                 {/* Card Item */}
                 <motion.div
+                  data-cursor={item.role}
                   whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                  className="bg-white p-6 sm:p-8 rounded-2xl border border-gray-200 shadow-sm hover:border-[#BFDBFE] hover:shadow-lg transition-all"
+                  className="bg-white p-6 sm:p-8 rounded-2xl border border-gray-200 shadow-sm hover:border-[#BFDBFE] hover:shadow-lg transition-all cursor-pointer"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-4">
                     <div>
@@ -223,7 +223,7 @@ export const OrganizationsSection = () => {
                   </div>
 
                   <ul className="space-y-2.5 list-none p-0 m-0">
-                    {item.bullets.map((bullet, bulletIdx) => (
+                    {(Array.isArray(item.bullets) ? item.bullets : item.bullets[lang])?.map((bullet, bulletIdx) => (
                       <li key={bulletIdx} className="relative pl-5 text-sm sm:text-base text-[#4B5563] leading-relaxed">
                         <span className="absolute left-0 top-2.5 w-1.5 h-1.5 rounded-full bg-[#1E3A8A]" />
                         <span>{bullet}</span>
@@ -280,7 +280,7 @@ export const OrganizationsSection = () => {
           <div ref={orgRef} id="exp-organization" className="space-y-10 pt-8">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#EFF6FF] text-[#1E3A8A] font-bold font-heading text-sm border border-[#BFDBFE]">
               <Users size={16} />
-              <span>Pengalaman Organisasi & Kepemimpinan</span>
+              <span>{t.types.organizational}</span>
             </div>
 
             {organizationExperienceData.map((item, idx) => (
@@ -323,7 +323,7 @@ export const OrganizationsSection = () => {
                   </div>
 
                   <ul className="space-y-2.5 list-none p-0 m-0">
-                    {item.bullets.map((bullet, bulletIdx) => (
+                    {(Array.isArray(item.bullets) ? item.bullets : item.bullets[lang])?.map((bullet, bulletIdx) => (
                       <li key={bulletIdx} className="relative pl-5 text-sm sm:text-base text-[#4B5563] leading-relaxed">
                         <span className="absolute left-0 top-2.5 w-1.5 h-1.5 rounded-full bg-[#1E3A8A]" />
                         <span>{bullet}</span>
@@ -380,7 +380,7 @@ export const OrganizationsSection = () => {
           <div ref={speakerRef} id="exp-speaker" className="space-y-10 pt-8">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#EFF6FF] text-[#1E3A8A] font-bold font-heading text-sm border border-[#BFDBFE]">
               <Mic size={16} />
-              <span>Pembicara & Pelatihan</span>
+              <span>{t.types.academic}</span>
             </div>
 
             {speakerExperienceData.map((item, idx) => (
@@ -423,7 +423,7 @@ export const OrganizationsSection = () => {
                   </div>
 
                   <ul className="space-y-2.5 list-none p-0 m-0">
-                    {item.bullets.map((bullet, bulletIdx) => (
+                    {(Array.isArray(item.bullets) ? item.bullets : item.bullets[lang])?.map((bullet, bulletIdx) => (
                       <li key={bulletIdx} className="relative pl-5 text-sm sm:text-base text-[#4B5563] leading-relaxed">
                         <span className="absolute left-0 top-2.5 w-1.5 h-1.5 rounded-full bg-[#1E3A8A]" />
                         <span>{bullet}</span>

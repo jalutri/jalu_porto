@@ -1,5 +1,7 @@
 import React from 'react';
 import { useScrollSpy } from './hooks/useScrollSpy';
+import { LanguageProvider } from './hooks/useLanguage';
+import { CustomCursor } from './components/common/CustomCursor';
 import { Navbar } from './components/layout/Navbar';
 import { HeroSection } from './components/sections/HeroSection';
 import { AboutSection } from './components/sections/AboutSection';
@@ -21,28 +23,33 @@ export function App() {
   const { activeSection, isScrolled } = useScrollSpy(sectionIds, 100);
 
   return (
-    <div className="min-h-screen bg-white text-[#1F2937] font-body selection:bg-[#EFF6FF] selection:text-[#1E3A8A]">
-      {/* Sticky Header Navigation */}
-      <Navbar
-        activeSection={activeSection}
-        isScrolled={isScrolled}
-        navLinks={navLinks}
-        logo={personalData.logo}
-      />
+    <LanguageProvider>
+      <div className="min-h-screen bg-white text-[#1F2937] font-body selection:bg-[#EFF6FF] selection:text-[#1E3A8A]">
+        {/* Animated Custom Cursor Follower */}
+        <CustomCursor />
 
-      {/* Main Page Content */}
-      <main>
-        <HeroSection personalData={personalData} />
-        <AboutSection personalData={personalData} />
-        <SkillsSection skillsData={skillsData} />
-        <ProjectsSection projectsData={projectsData} />
-        <OrganizationsSection organizationsData={organizationsData} />
-        <ContactSection contactData={contactData} />
-      </main>
+        {/* Sticky Header Navigation */}
+        <Navbar
+          activeSection={activeSection}
+          isScrolled={isScrolled}
+          navLinks={navLinks}
+          logo={personalData.logo}
+        />
 
-      {/* Footer */}
-      <Footer navLinks={navLinks} logo={personalData.logo} />
-    </div>
+        {/* Main Page Content */}
+        <main>
+          <HeroSection personalData={personalData} />
+          <AboutSection personalData={personalData} />
+          <SkillsSection skillsData={skillsData} />
+          <ProjectsSection projectsData={projectsData} />
+          <OrganizationsSection organizationsData={organizationsData} />
+          <ContactSection contactData={contactData} />
+        </main>
+
+        {/* Footer */}
+        <Footer navLinks={navLinks} logo={personalData.logo} />
+      </div>
+    </LanguageProvider>
   );
 }
 

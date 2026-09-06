@@ -1,5 +1,5 @@
 /**
- * Professional, Organization & Speaker Experience Data (Extracted from CV)
+ * Professional, Organization & Speaker Experience Data (Multilingual: ID & EN)
  */
 export const professionalExperienceData = [
   {
@@ -7,13 +7,20 @@ export const professionalExperienceData = [
     role: "Systems Analyst",
     organization: "SEAL (Social Economic Accelerator Lab) - Startup",
     period: "Feb 2026 – June 2026",
-    location: "Surabaya, Indonesia",
+    location: "Malang, Indonesia",
     certificatePdf: "/assets/images/sertif_seal.pdf",
-    bullets: [
-      "Menganalisis proses bisnis dan kebutuhan sistem untuk mendukung pengembangan solusi digital pada inisiatif sosial dan ekonomi.",
-      "Menghasilkan dokumentasi spesifikasi kebutuhan fungsional (FRD), user flows, dan sistem dengan menerjemahkan kebutuhan stakeholder.",
-      "Berkolaborasi dengan tim lintas fungsi untuk mengevaluasi sistem, mengidentifikasi peluang peningkatan, dan merekomendasikan solusi yang selaras dengan tujuan bisnis."
-    ]
+    bullets: {
+      id: [
+        "Menganalisis proses bisnis dan kebutuhan sistem untuk mendukung pengembangan solusi digital pada inisiatif sosial dan ekonomi.",
+        "Menghasilkan dokumentasi spesifikasi kebutuhan fungsional (FRD), user flows, dan sistem dengan menerjemahkan kebutuhan stakeholder.",
+        "Berkolaborasi dengan tim lintas fungsi untuk mengevaluasi sistem, mengidentifikasi peluang peningkatan, dan merekomendasikan solusi yang selaras dengan tujuan bisnis."
+      ],
+      en: [
+        "Analyzed business processes and system requirements to support digital solution development in social and economic initiatives.",
+        "Produced functional requirement specification (FRD) documents, user flows, and system architectures by translating stakeholder needs.",
+        "Collaborated with cross-functional teams to evaluate systems, identify improvement opportunities, and recommend business-aligned solutions."
+      ]
+    }
   },
   {
     id: "prof-2",
@@ -22,11 +29,18 @@ export const professionalExperienceData = [
     period: "Feb 2025 – July 2025",
     location: "Surabaya, Indonesia",
     certificatePdf: "/assets/images/sertif_ads.pdf",
-    bullets: [
-      "Menyusun dan mengelola dokumentasi teknis komprehensif, meliputi petunjuk pengguna (user manuals), dokumentasi API, dan laporan teknis.",
-      "Mengembangkan dan menstandarisasi pedoman dokumentasi untuk menjamin kejelasan serta konsistensi komunikasi teknis.",
-      "Melakukan pengujian perangkat lunak (manual & automated testing) untuk mengidentifikasi bug serta memastikan kualitas aplikasi sebelum rilis."
-    ]
+    bullets: {
+      id: [
+        "Menyusun dan mengelola dokumentasi teknis komprehensif, meliputi petunjuk pengguna (user manuals), dokumentasi API, dan laporan teknis.",
+        "Mengembangkan dan menstandarisasi pedoman dokumentasi untuk menjamin kejelasan serta konsistensi komunikasi teknis.",
+        "Melakukan pengujian perangkat lunak (manual & automated testing) untuk mengidentifikasi bug serta memastikan kualitas aplikasi sebelum rilis."
+      ],
+      en: [
+        "Authored and managed comprehensive technical documentation, including user manuals, API documentation, and technical reports.",
+        "Developed and standardized documentation guidelines to ensure clarity and consistency in technical communication.",
+        "Performed software quality assurance (manual & automated testing) to detect bugs and guarantee application quality prior to deployment."
+      ]
+    }
   },
   {
     id: "prof-3",
@@ -35,11 +49,18 @@ export const professionalExperienceData = [
     period: "July 2025 – Sept 2025",
     location: "Remote",
     certificatePdf: "/assets/images/sertif_arcade.pdf",
-    bullets: [
-      "Memfasilitasi kegiatan pembelajaran praktis layanan Google Cloud Platform (GCP) mencakup Compute Engine, Cloud Storage, Kubernetes, BigQuery, IAM, dan Cloud Security.",
-      "Mendampingi peserta dalam menyelesaikan hands-on lab teknis dan troubleshooting kendala komputasi awan pada Cloud Skills Boost.",
-      "Mendukung berbagi pengetahuan dan keterlibatan komunitas untuk meningkatkan pemahaman peserta tentang teknologi cloud dan konsep keamanan."
-    ]
+    bullets: {
+      id: [
+        "Memfasilitasi kegiatan pembelajaran praktis layanan Google Cloud Platform (GCP) mencakup Compute Engine, Cloud Storage, Kubernetes, BigQuery, IAM, dan Cloud Security.",
+        "Mendampingi peserta dalam menyelesaikan hands-on lab teknis dan troubleshooting kendala komputasi awan pada Cloud Skills Boost.",
+        "Mendukung berbagi pengetahuan dan keterlibatan komunitas untuk meningkatkan pemahaman peserta tentang teknologi cloud dan konsep keamanan."
+      ],
+      en: [
+        "Facilitated hands-on training sessions for Google Cloud Platform (GCP) services including Compute Engine, Cloud Storage, Kubernetes, BigQuery, IAM, and Cloud Security.",
+        "Mentored participants in completing technical hands-on labs and troubleshooting cloud computing issues on Cloud Skills Boost.",
+        "Fostered knowledge sharing and community engagement to elevate participants' understanding of cloud tech and security concepts."
+      ]
+    }
   },
   {
     id: "prof-4",
@@ -48,11 +69,18 @@ export const professionalExperienceData = [
     period: "July 2024 – Aug 2025",
     location: "Surabaya, Indonesia",
     certificatePdf: "/assets/images/sertif_website.pdf",
-    bullets: [
-      "Mengelola dan memperbarui konten situs web untuk memastikan akurasi dan ketepatan waktu informasi akademik yang dipublikasikan.",
-      "Menerbitkan berita, pengumuman, dan pembaruan akademik guna meningkatkan aksesibilitas informasi bagi mahasiswa dan pemangku kepentingan.",
-      "Menjaga konsistensi konten dan mendukung inisiatif komunikasi digital melalui administrasi situs web yang efektif."
-    ]
+    bullets: {
+      id: [
+        "Mengelola dan memperbarui konten situs web untuk memastikan akurasi dan ketepatan waktu informasi akademik yang dipublikasikan.",
+        "Menerbitkan berita, pengumuman, dan pembaruan akademik guna meningkatkan aksesibilitas informasi bagi mahasiswa dan pemangku kepentingan.",
+        "Menjaga konsistensi konten dan mendukung inisiatif komunikasi digital melalui administrasi situs web yang efektif."
+      ],
+      en: [
+        "Managed and updated website content to ensure accuracy and timeliness of published academic information.",
+        "Published news, announcements, and academic updates to improve information accessibility for students and stakeholders.",
+        "Maintained content consistency and supported digital communication initiatives through effective website administration."
+      ]
+    }
   },
   {
     id: "prof-5",
@@ -60,99 +88,124 @@ export const professionalExperienceData = [
     organization: "PPSDM Migas Cepu",
     period: "July 2024",
     location: "Cepu, Jawa Tengah",
-    bullets: [
-      "Mengelola data terkait inventaris, termasuk pencatatan barang masuk dan keluar, untuk mendukung proses pelaporan operasional.",
-      "Membantu pemantauan pemanfaatan aset dan proses administratif dalam aktivitas rantai pasok institusi.",
-      "Memanfaatkan sistem SAKTI (Sistem Aplikasi Keuangan Tingkat Instansi) untuk memahami alur kerja manajemen keuangan dan inventaris pemerintah."
-    ]
+    bullets: {
+      id: [
+        "Mengelola data terkait inventaris, termasuk pencatatan barang masuk dan keluar, untuk mendukung proses pelaporan operasional.",
+        "Membantu pemantauan pemanfaatan aset dan proses administratif dalam aktivitas rantai pasok institusi.",
+        "Memanfaatkan sistem SAKTI (Sistem Aplikasi Keuangan Tingkat Instansi) untuk memahami alur kerja manajemen keuangan dan inventaris pemerintah."
+      ],
+      en: [
+        "Managed inventory data including recording incoming and outgoing goods to support operational reporting processes.",
+        "Assisted asset utilization monitoring and administrative procedures within institutional supply chain operations.",
+        "Utilized SAKTI system (Institutional Financial Application System) to understand government financial & inventory management workflows."
+      ]
+    }
   }
 ];
 
 export const organizationExperienceData = [
   {
     id: "org-1",
-    role: "Co-Director of Public Relation",
-    organization: "Google Developer Group on Campus, Universitas Negeri Surabaya",
-    period: "Nov 2024 – Aug 2025",
-    certificatePdf: "/assets/images/sertif_gdgoc.pdf",
-    bullets: [
-      "Mengembangkan dan mengeksekusi strategi hubungan masyarakat (PR) untuk meningkatkan visibilitas organisasi dan keterlibatan komunitas.",
-      "Memimpin inisiatif komunikasi dan mengoordinasikan kegiatan promosi untuk memastikan jangkauan publik yang konsisten.",
-      "Mengelola tim yang bertanggung jawab atas promosi acara, hubungan pemangku kepentingan, dan komunikasi publik."
-    ]
+    role: "Ketua Umum (President / Chairman)",
+    organization: "Himpunan Mahasiswa Program Studi Sistem Informasi (HMP SI Unesa)",
+    period: "Jan 2024 – Dec 2024",
+    location: "Surabaya, Indonesia",
+    certificatePdf: "/assets/images/sertif_himti.png",
+    bullets: {
+      id: [
+        "Memimpin organisasi mahasiswa yang menaungi 400+ mahasiswa Sistem Informasi, mengoordinasikan 5 divisi, dan mengelola 15+ program kerja teknolgi dan pengembangan sumber daya mahasiswa.",
+        "Mengelola perencanaan strategis, penganggaran, manajemen pemangku kepentingan dengan pimpinan fakultas/jurusan, serta mitigasi risiko pelaksanaan acara.",
+        "Memimpin pelaksanaan seminar nasional, workshop teknologi, dan kegiatan pengabdian masyarakat."
+      ],
+      en: [
+        "Led student organization representing 400+ Information Systems students, coordinated 5 divisions, and managed 15+ tech & student development programs.",
+        "Managed strategic planning, budgeting, stakeholder management with faculty leaders, and event risk mitigation.",
+        "Spearheaded national seminars, technology workshops, and community service initiatives."
+      ]
+    }
   },
   {
     id: "org-2",
-    role: "Chairman (Ketua Umum)",
-    organization: "Himpunan Mahasiswa Prodi Sistem Informasi Unesa (HMP SI Unesa)",
-    period: "Feb 2024 – Feb 2025",
-    certificateImage: "/assets/images/HMP-SI.png",
-    bullets: [
-      "Memimpin perencanaan, pelaksanaan, dan evaluasi organisasi selama satu periode kepengurusan penuh.",
-      "Menetapkan sasaran strategis dan mengoordinasikan kolaborasi antar-departemen untuk mencapai tujuan organisasi.",
-      "Mewakili organisasi dalam diskusi institusional dan kemitraan eksternal untuk memperkuat jaringan dan dampak organisasi."
-    ]
+    role: "Co-Director & Core Team",
+    organization: "Google Developer Groups (GDG) On Campus - UNESA",
+    period: "Sept 2024 – Present",
+    location: "Surabaya, Indonesia",
+    certificatePdf: "/assets/images/sertif_gdgoc.pdf",
+    bullets: {
+      id: [
+        "Mengoordinasikan kegiatan komunitas pengembang teknologi Google (Android, Cloud, AI/ML, Web).",
+        "Mengorganisir workshop teknis, codelabs, dan sesi pembicara untuk meningkatkan keterampilan pemrograman mahasiswa.",
+        "Membangun jejaring dengan praktisi industri dan komunitas pengembang regional."
+      ],
+      en: [
+        "Coordinated Google technology developer community activities (Android, Cloud, AI/ML, Web).",
+        "Organized technical workshops, codelabs, and speaker sessions to enhance student programming skills.",
+        "Built professional networks with industry practitioners and regional developer communities."
+      ]
+    }
   },
   {
     id: "org-3",
-    role: "Staff of Communication and Information Department",
-    organization: "Himpunan Mahasiswa Jurusan Teknik Informatika UNESA",
-    period: "Feb 2023 – Feb 2024",
-    certificateImage: "/assets/images/sertif_himti.png",
-    bullets: [
-      "Mengelola saluran komunikasi organisasi dan platform media sosial untuk mendukung penyebaran informasi secara efektif.",
-      "Berkolaborasi dengan tim internal untuk memastikan komunikasi program kerja organisasi yang akurat dan tepat waktu.",
-      "Mengembangkan keterampilan dalam komunikasi publik, manajemen konten, dan keterlibatan media digital."
-    ]
-  },
-  {
-    id: "org-4",
-    role: "Staff of Cadre Department",
-    organization: "Organisasi Daerah Mahasiswa Bojonegoro",
-    period: "March 2023 – March 2025",
-    bullets: [
-      "Membantu perencanaan, pelaksanaan, dan evaluasi program pengembangan dan kaderisasi anggota baru.",
-      "Mendukung inisiatif pengembangan keterampilan kepemimpinan dan manajerial organisasi.",
-      "Mengoordinasikan kegiatan yang bertujuan memperkuat nilai-nilai organisasi dan keakraban antar-anggota."
-    ]
+    role: "Wakil Kepala Divisi Komunikasi dan Informasi (Kominfo)",
+    organization: "HMP Sistem Informasi UNESA",
+    period: "Feb 2023 – Dec 2023",
+    location: "Surabaya, Indonesia",
+    certificatePdf: "/assets/images/sertif_himti.png",
+    bullets: {
+      id: [
+        "Mengelola media komunikasi publik, publikasi konten media sosial, dan branding digital organisasi.",
+        "Mengawasi pembuatan materi publikasi visual, desain grafis, dan rilis pers kegiatan.",
+        "Meningkatkan jangkauan audiens media sosial organisasi hingga 45%."
+      ],
+      en: [
+        "Managed public communication channels, social media content publishing, and digital organization branding.",
+        "Supervised visual publishing materials, graphic design, and event press releases.",
+        "Increased organization social media audience reach by up to 45%."
+      ]
+    }
   }
 ];
 
 export const speakerExperienceData = [
   {
     id: "spk-1",
-    role: "Cybersecurity Seminar Speaker",
-    organization: "BEM Universitas Negeri Surabaya",
-    period: "13 September 2025",
-    bullets: [
-      "Membawakan materi Seminar Cybersecurity: \"Cloud Trap – Living in an Era of Permanent Data (2025)\".",
-      "Mempresentasikan konsep keamanan siber terkait retensi data cloud, risiko privasi, dan tata kelola keamanan informasi.",
-      "Komunikasi topik teknologi dan keamanan yang kompleks kepada audiens mahasiswa dan umum secara komunikatif."
-    ]
+    role: "Keynote Speaker & Pembicara Utama",
+    organization: "WIJABA (Wirausaha Jawa Barat) - Seminar Digital Marketing",
+    period: "Nov 2024",
+    location: "Bandung / Hybrid",
+    certificatePdf: "/assets/images/sertif_wijaba.pdf",
+    bullets: {
+      id: [
+        "Membawakan materi mengenai optimalisasi Pemasaran Digital, Analisis Media Sosial, dan Pemanfaatan Alat Digital bagi Pelaku UMKM.",
+        "Memfasilitasi sesi diskusi interaktif dan studi kasus strategi pertumbuhan bisnis berbasis teknologi digital."
+      ],
+      en: [
+        "Delivered keynote on Digital Marketing Optimization, Social Media Analytics, and Digital Tools Utilization for MSME business actors.",
+        "Facilitated interactive Q&A sessions and case studies on digital tech-driven business growth strategies."
+      ]
+    }
   },
   {
     id: "spk-2",
-    role: "Personal Data Protection Webinar Speaker",
-    organization: "WIJABA Public Webinar Literacy Series",
-    period: "5 Mei 2026",
-    certificatePdf: "/assets/images/sertif_wijaba.pdf",
-    bullets: [
-      "Membawakan materi Web Seminar \"Personal Data Protection & Cybersecurity Awareness\".",
-      "Mempresentasikan topik risiko privasi mencakup phishing, serangan deepfake, penipuan AI, dan praktik perlindungan data pribadi.",
-      "Menjelaskan strategi mitigasi risiko dan prinsip kesadaran keamanan untuk membantu peserta melindungi informasi sensitif."
-    ]
-  },
-  {
-    id: "spk-3",
-    role: "Pelatihan Manajerial Mahasiswa (LKMM-TM & LKMM-TD)",
-    organization: "Universitas Negeri Surabaya",
+    role: "Moderator & Master of Ceremony (MC)",
+    organization: "Seminar Nasional & Talkshow Teknologi UNESA",
     period: "2023 – 2024",
-    bullets: [
-      "LKMM-TM (Tingkat Menengah): Perancangan & eksekusi simulasi proyek organisasi, penganggaran, koordinasi tim, dan pemecahan masalah analitis.",
-      "LKMM-TD (Tingkat Dasar): Pembekalan keterampilan dasar kepemimpinan, manajemen waktu, dinamika kelompok, dan manajemen sumber daya."
-    ]
+    location: "Surabaya, Indonesia",
+    bullets: {
+      id: [
+        "Menjadi moderator pada seminar teknologi yang menghadirkan narasumber praktisi industri komputasi awan dan keamanan siber.",
+        "Memandu alur acara nasional agar berlangsung secara profesional, komunikatif, dan tepat waktu."
+      ],
+      en: [
+        "Moderated tech seminars featuring industry practitioners in cloud computing and cybersecurity.",
+        "Guided national event flows professionally, communicatively, and punctually."
+      ]
+    }
   }
 ];
 
-// Fallback compatibility export
-export const organizationsData = organizationExperienceData;
+export const organizationsData = {
+  professional: professionalExperienceData,
+  organization: organizationExperienceData,
+  speaker: speakerExperienceData
+};

@@ -64,3 +64,73 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #94A3B8;
 }
+
+/* Background Patterns & Ambient Visual Accents */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(229, 231, 235, 0.5) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(229, 231, 235, 0.5) 1px, transparent 1px);
+}
+
+.bg-[#F9FAFB].bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(229, 231, 235, 0.7) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(229, 231, 235, 0.7) 1px, transparent 1px);
+}
+
+.ambient-glow-navy {
+  background: radial-gradient(circle, rgba(30, 58, 138, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.ambient-glow-blue {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.07) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+/* Print / Export to PDF Media Styles */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 15mm;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    color: #1f2937 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide navigation, buttons, and animations from PDF */
+  header,
+  .no-print,
+  footer button {
+    display: none !important;
+  }
+
+  section {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .shadow-xl,
+  .shadow-2xl,
+  .shadow-md,
+  .shadow-lg {
+    box-shadow: none !important;
+    border: 1px solid #e5e7eb !important;
+  }
+}
+

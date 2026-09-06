@@ -9,8 +9,8 @@ export const personalData = {
   statusBadge: "Fresh Graduate of Information Systems | Open to Work",
   headline: "Systems Analyst | Software QA & Technical Writer | IT Risk & Cloud Security Enthusiast",
   bio: "A recent Information Systems graduate who is enthusiastic about building effective, secure, and user-centric technology solutions. Has experience in systems analysis, software quality assurance, and information security risk management gained through academic projects and industry development programs. Is accustomed to working collaboratively, possesses strong analytical skills, and is always eager to learn new technologies to create a positive impact.",
-  avatar: "/assets/images/avatar.png",
-  cvLink: "#contact",
+  avatar: "/assets/images/photo.png",
+  cvLink: "/assets/images/CV_Jalu Tri Atmaja.pdf",
   floatingCard: {
     icon: "GraduationCap",
     title: "S1 Sistem Informasi",

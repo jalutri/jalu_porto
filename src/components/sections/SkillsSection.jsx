@@ -6,6 +6,8 @@ import {
   GitBranch, Send, Activity, BrainCircuit, MessageSquareCode, Users, Wrench
 } from 'lucide-react';
 import { Badge } from '../common/Badge';
+import { useLanguage } from '../../hooks/useLanguage';
+import { translations } from '../../data/translations';
 
 // Helper Map for Dynamic Lucide Icons
 const iconMap = {
@@ -19,42 +21,31 @@ const renderIcon = (iconName, size = 20, className = '') => {
   return <IconComponent size={size} className={className} />;
 };
 
-/**
- * Tujuan Component:
- * Menampilkan matriks keahlian teknis & soft skills terstruktur dengan fitur pemilih tab interaktif.
- *
- * Struktur Component:
- * - `<section>` dengan ID #skills.
- * - Tab Switcher Buttons: "Technical Skills" & "Soft Skills & Governance".
- * - Dynamic Grid Cards berdasarkan tab yang aktif.
- *
- * Props:
- * @param {Object} skillsData - Skills list data object
- *
- * State:
- * @state {'technical' | 'soft'} activeTab - Active skills category tab state
- */
 export const SkillsSection = ({ skillsData }) => {
   const [activeTab, setActiveTab] = useState('technical');
+  const { lang } = useLanguage();
+  const t = translations[lang].skills;
 
   if (!skillsData) return null;
 
   const { technical, soft } = skillsData;
 
   return (
-    <section id="skills" className="py-20 md:py-28 bg-white">
-      <div className="max-w-[1200px] mx-auto px-6">
+    <section id="skills" className="py-20 md:py-28 bg-white bg-grid-pattern relative overflow-hidden">
+      <div className="absolute top-1/3 -right-20 w-80 h-80 bg-[#EFF6FF] rounded-full blur-3xl opacity-70 pointer-events-none" />
+
+      <div className="max-w-[1200px] mx-auto px-6 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <Badge variant="navy" className="mb-3">
-            // COMPETENCIES
+            {t.tag}
           </Badge>
           <h2 className="text-3xl md:text-4xl font-extrabold font-heading text-[#1F2937] tracking-tight mb-4">
-            Keahlian Teknis & Governansi TI
+            {t.title}
           </h2>
           <p className="text-base md:text-lg text-[#4B5563]">
-            Perangkat, teknologi, serta kerangka kerja yang saya kuasai dan terapkan dalam berbagai studi kasus.
+            {t.subtitle}
           </p>
         </div>
 
@@ -161,6 +152,20 @@ export const SkillsSection = ({ skillsData }) => {
           )}
         </AnimatePresence>
 
+      </div>
+
+      {/* Organic Curved Bottom Section Divider */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none pointer-events-none">
+        <svg
+          className="relative block w-full h-[40px] sm:h-[60px] text-[#F9FAFB]"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,0 C150,90 400,10 600,40 C800,70 1050,0 1200,50 L1200,120 L0,120 Z"
+            fill="currentColor"
+          ></path>
+        </svg>
       </div>
     </section>
   );

@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Linkedin, Github, MessageCircle, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 import { Badge } from '../common/Badge';
 import { Button } from '../common/Button';
+import { useLanguage } from '../../hooks/useLanguage';
+import { translations } from '../../data/translations';
 
 const iconMap = {
   Mail, Linkedin, Github, MessageCircle
@@ -32,6 +34,8 @@ const renderIcon = (iconName, size = 22) => {
  */
 export const ContactSection = ({ contactData = [] }) => {
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const { lang } = useLanguage();
+  const t = translations[lang].contact;
 
   const {
     register,
@@ -57,13 +61,13 @@ export const ContactSection = ({ contactData = [] }) => {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <Badge variant="navy" className="mb-3">
-            // GET IN TOUCH
+            {t.tag}
           </Badge>
           <h2 className="text-3xl md:text-4xl font-extrabold font-heading text-[#1F2937] tracking-tight mb-4">
-            Mari Terhubung & Berdiskusi
+            {t.title}
           </h2>
           <p className="text-base md:text-lg text-[#4B5563]">
-            Saya terbuka untuk peluang karir Full-time, Kontrak, maupun Diskusi seputar Cloud Computing, Keamanan Informasi, dan Web Engineering.
+            {t.subtitle}
           </p>
         </div>
 
@@ -107,131 +111,44 @@ export const ContactSection = ({ contactData = [] }) => {
             })}
           </div>
 
-          {/* Right Column: Contact Form */}
-          <div className="bg-white p-8 md:p-10 rounded-2xl border border-gray-200 shadow-sm relative">
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+          {/* Right Column: Direct Email CTA Card */}
+          <div className="bg-white p-8 md:p-10 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#EFF6FF] to-transparent rounded-bl-full pointer-events-none" />
 
-              {/* Name Input */}
-              <div>
-                <label htmlFor="name" className="block text-xs md:text-sm font-bold font-heading text-[#1F2937] mb-1.5">
-                  Nama Lengkap / Perusahaan
-                </label>
-                <input
-                  id="name"
-                  type="text"
-                  placeholder="Masukkan nama Anda"
-                  {...register('name', { required: 'Nama wajib diisi' })}
-                  className={`w-full px-4 py-3 rounded-lg border bg-[#F9FAFB] text-sm text-[#1F2937] outline-none transition-all focus:bg-white ${errors.name
-                      ? 'border-red-500 focus:ring-2 focus:ring-red-200'
-                      : 'border-gray-200 focus:border-[#1E3A8A] focus:ring-2 focus:ring-[#EFF6FF]'
-                    }`}
-                />
-                {errors.name && (
-                  <span className="inline-flex items-center gap-1 text-xs text-red-600 mt-1">
-                    <AlertCircle size={14} /> {errors.name.message}
-                  </span>
-                )}
+            <div className="relative z-10 mb-8">
+              <div className="w-14 h-14 rounded-2xl bg-[#EFF6FF] text-[#1E3A8A] flex items-center justify-center mb-6 shadow-sm border border-[#BFDBFE]">
+                <Mail size={28} />
               </div>
 
-              {/* Email Input */}
-              <div>
-                <label htmlFor="email" className="block text-xs md:text-sm font-bold font-heading text-[#1F2937] mb-1.5">
-                  Alamat Email
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  placeholder="nama@perusahaan.com"
-                  {...register('email', {
-                    required: 'Email wajib diisi',
-                    pattern: {
-                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: 'Format email tidak valid'
-                    }
-                  })}
-                  className={`w-full px-4 py-3 rounded-lg border bg-[#F9FAFB] text-sm text-[#1F2937] outline-none transition-all focus:bg-white ${errors.email
-                      ? 'border-red-500 focus:ring-2 focus:ring-red-200'
-                      : 'border-gray-200 focus:border-[#1E3A8A] focus:ring-2 focus:ring-[#EFF6FF]'
-                    }`}
-                />
-                {errors.email && (
-                  <span className="inline-flex items-center gap-1 text-xs text-red-600 mt-1">
-                    <AlertCircle size={14} /> {errors.email.message}
-                  </span>
-                )}
-              </div>
+              <h3 className="text-2xl md:text-3xl font-extrabold font-heading text-[#1F2937] tracking-tight mb-3">
+                {t.ctaEmailTitle}
+              </h3>
 
-              {/* Subject Input */}
-              <div>
-                <label htmlFor="subject" className="block text-xs md:text-sm font-bold font-heading text-[#1F2937] mb-1.5">
-                  Subjek Pesan
-                </label>
-                <input
-                  id="subject"
-                  type="text"
-                  placeholder="Misal: Peluang Karir / Diskusi Proyek"
-                  {...register('subject', { required: 'Subjek pesan wajib diisi' })}
-                  className={`w-full px-4 py-3 rounded-lg border bg-[#F9FAFB] text-sm text-[#1F2937] outline-none transition-all focus:bg-white ${errors.subject
-                      ? 'border-red-500 focus:ring-2 focus:ring-red-200'
-                      : 'border-gray-200 focus:border-[#1E3A8A] focus:ring-2 focus:ring-[#EFF6FF]'
-                    }`}
-                />
-                {errors.subject && (
-                  <span className="inline-flex items-center gap-1 text-xs text-red-600 mt-1">
-                    <AlertCircle size={14} /> {errors.subject.message}
-                  </span>
-                )}
-              </div>
+              <p className="text-[#4B5563] text-base leading-relaxed mb-6">
+                {t.ctaEmailSubtitle}
+              </p>
 
-              {/* Message Input */}
-              <div>
-                <label htmlFor="message" className="block text-xs md:text-sm font-bold font-heading text-[#1F2937] mb-1.5">
-                  Pesan
-                </label>
-                <textarea
-                  id="message"
-                  rows={4}
-                  placeholder="Tuliskan pesan Anda di sini..."
-                  {...register('message', { required: 'Pesan tidak boleh kosong' })}
-                  className={`w-full px-4 py-3 rounded-lg border bg-[#F9FAFB] text-sm text-[#1F2937] outline-none transition-all focus:bg-white resize-y ${errors.message
-                      ? 'border-red-500 focus:ring-2 focus:ring-red-200'
-                      : 'border-gray-200 focus:border-[#1E3A8A] focus:ring-2 focus:ring-[#EFF6FF]'
-                    }`}
-                />
-                {errors.message && (
-                  <span className="inline-flex items-center gap-1 text-xs text-red-600 mt-1">
-                    <AlertCircle size={14} /> {errors.message.message}
-                  </span>
-                )}
+              <div className="p-4 rounded-xl bg-[#F9FAFB] border border-gray-200 flex items-center gap-3 mb-6">
+                <div className="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-pulse" />
+                <span className="text-xs md:text-sm font-semibold font-mono text-[#1F2937]">
+                  jalutriatmaja19@gmail.com
+                </span>
               </div>
+            </div>
 
-              {/* Submit Button */}
+            <div className="relative z-10">
               <Button
-                type="submit"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=jalutriatmaja19@gmail.com&su=Peluang%20Karir%20/%20Diskusi%20Proyek%20Portofolio"
+                target="_blank"
+                rel="noopener noreferrer"
                 variant="primary"
-                size="md"
-                disabled={isSubmitting}
-                className="w-full"
+                size="lg"
+                className="w-full justify-center shadow-lg hover:shadow-xl transition-all"
               >
-                <Send size={18} />
-                <span>{isSubmitting ? 'Mengirim Pesan...' : 'Kirim Pesan'}</span>
+                <Send size={20} />
+                <span>{t.ctaEmailBtn}</span>
               </Button>
-            </form>
-
-            {/* Toast Success Notification */}
-            <AnimatePresence>
-              {submitSuccess && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  className="mt-4 p-4 rounded-xl bg-[#ECFDF5] border border-[#A7F3D0] text-[#065F46] flex items-center gap-3 text-sm font-medium"
-                >
-                  <CheckCircle2 size={20} className="text-[#10B981] flex-shrink-0" />
-                  <span>Pesan berhasil terkirim! Terima kasih telah menghubungi Jalu.</span>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            </div>
           </div>
 
         </div>

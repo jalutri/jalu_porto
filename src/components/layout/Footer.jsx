@@ -1,23 +1,13 @@
 import React from 'react';
 import { ArrowUp } from 'lucide-react';
+import { useLanguage } from '../../hooks/useLanguage';
+import { translations } from '../../data/translations';
 
-/**
- * Tujuan Component:
- * Footer bagian bawah halaman dengan logo personal brand JL, tautan navigasi cermin,
- * hak cipta, dan tombol kembali ke atas halaman (Back to Top).
- *
- * Struktur Component:
- * - `<footer>` dengan warna latar belakang #1F2937 (Charcoal).
- * - Flexbox top row: Logo Image & Navigation links.
- * - Flexbox bottom row: Copyright text & Smooth back-to-top button.
- *
- * Props:
- * @param {Array} navLinks - List of navigation links
- * @param {string} logo - Image URL path for custom logo
- *
- * State: None
- */
 export const Footer = ({ navLinks = [], logo = '/assets/images/logo.png' }) => {
+  const { lang } = useLanguage();
+  const tNav = translations[lang].nav;
+  const tFooter = translations[lang].footer;
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -47,16 +37,19 @@ export const Footer = ({ navLinks = [], logo = '/assets/images/logo.png' }) => {
           </a>
 
           <ul className="flex items-center gap-6 list-none m-0 p-0 flex-wrap justify-center">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <a
-                  href={link.href}
-                  className="text-sm font-heading font-medium text-gray-400 hover:text-white transition-colors"
-                >
-                  {link.name}
-                </a>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const key = link.href.replace('#', '');
+              return (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-sm font-heading font-medium text-gray-400 hover:text-white transition-colors"
+                  >
+                    {tNav[key] || link.name}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
