@@ -170,35 +170,35 @@ export const speakerExperienceData = [
   {
     id: "spk-1",
     role: "Keynote Speaker & Pembicara Utama",
-    organization: "WIJABA (Wirausaha Jawa Barat) - Seminar Digital Marketing",
-    period: "Nov 2024",
-    location: "Bandung / Hybrid",
+    organization: "WIJABA Pendidikan - Seminar Digital Security Awareness",
+    period: "Mei 2026",
+    location: "Online",
     certificatePdf: "/assets/images/sertif_wijaba.pdf",
     bullets: {
       id: [
-        "Membawakan materi mengenai optimalisasi Pemasaran Digital, Analisis Media Sosial, dan Pemanfaatan Alat Digital bagi Pelaku UMKM.",
-        "Memfasilitasi sesi diskusi interaktif dan studi kasus strategi pertumbuhan bisnis berbasis teknologi digital."
+        "Menyampaikan materi mengenai keamanan siber dan risiko privasi, meliputi phishing, serangan deepfake, penipuan berbasis AI, serta praktik perlindungan data pribadi.",
+        "Menjelaskan strategi mitigasi risiko dan prinsip kesadaran keamanan untuk membantu peserta melindungi informasi sensitif."
       ],
       en: [
-        "Delivered keynote on Digital Marketing Optimization, Social Media Analytics, and Digital Tools Utilization for MSME business actors.",
-        "Facilitated interactive Q&A sessions and case studies on digital tech-driven business growth strategies."
+        "Presented cybersecurity and privacy risk topics, including phishing, deepfake attacks, AI scams, and personal data protection practices.",
+        "Explained risk mitigation strategies and security awareness principles to help participants safeguard sensitive information."
       ]
     }
   },
   {
     id: "spk-2",
-    role: "Moderator & Master of Ceremony (MC)",
-    organization: "Seminar Nasional & Talkshow Teknologi UNESA",
-    period: "2023 – 2024",
+    role: "Cybersecurity Seminar Speaker",
+    organization: "BEM Universitas Negeri Surabaya",
+    period: "September 2025",
     location: "Surabaya, Indonesia",
     bullets: {
       id: [
-        "Menjadi moderator pada seminar teknologi yang menghadirkan narasumber praktisi industri komputasi awan dan keamanan siber.",
-        "Memandu alur acara nasional agar berlangsung secara profesional, komunikatif, dan tepat waktu."
+        "Menyampaikan konsep keamanan siber terkait retensi data cloud, risiko privasi, dan tata kelola keamanan informasi pada Seminar Cybersecurity: Cloud Trap – Living in an Era of Permanent Data.",
+        "Mengomunikasikan topik keamanan dan teknologi yang kompleks kepada mahasiswa dan audiens non-teknis melalui seminar publik."
       ],
       en: [
-        "Moderated tech seminars featuring industry practitioners in cloud computing and cybersecurity.",
-        "Guided national event flows professionally, communicatively, and punctually."
+        "Presented cybersecurity concepts related to cloud data retention, privacy risks, and information security governance at Seminar Cybersecurity: Cloud Trap – Living in an Era of Permanent Data.",
+        "Communicated complex security and technology topics to students and non-technical audiences through public seminars."
       ]
     }
   }

@@ -100,8 +100,7 @@ export const HeroSection = ({ personalData }) => {
 
             {/* Curved Image Container */}
             <div 
-              data-cursor={lang === 'id' ? "Foto Jalu Seta Wijaya" : "Jalu Seta Wijaya Portrait"} 
-              className="relative w-[280px] h-[340px] sm:w-[320px] sm:h-[380px] flex items-end justify-center cursor-pointer"
+              className="relative w-[280px] h-[340px] sm:w-[320px] sm:h-[380px] flex items-end justify-center"
             >
               {/* Circular Gray Curved Base */}
               <div className="absolute bottom-1 w-[260px] h-[260px] sm:w-[300px] sm:h-[300px] rounded-full bg-gradient-to-b from-[#9CA3AF] to-[#6B7280] shadow-2xl border-4 border-white pointer-events-none" />
